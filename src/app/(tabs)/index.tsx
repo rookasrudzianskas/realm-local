@@ -5,11 +5,12 @@ import React from "react";
 import {StatusBar} from "expo-status-bar";
 import TaskListItem from "@/src/components/task-list-item";
 import TaskList from "@/src/components/task-list";
+import TaskBoard from '@/src/components/task-board';
 
 export default function TabOneScreen() {
   return (
     <View className="flex-1 bg-[#09090b] px-3 pt-4">
-      <TaskList />
+      <TaskBoard />
       <StatusBar style="auto" />
     </View>
   );
