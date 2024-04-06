@@ -1,6 +1,6 @@
 //@ts-nocheck
 import React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import {Ionicons} from "@expo/vector-icons";
 import {router} from "expo-router";
 
