@@ -8,9 +8,7 @@ const TaskDetails = () => {
   const { id } = useLocalSearchParams();
   const task = useObject<Task>(Task, new BSON.ObjectID(id as string));
 
-  if(!task) {
-    return null;
-  }
+  if(!task) return null;
 
   return (
     <View style={{ padding: 10 }}>
