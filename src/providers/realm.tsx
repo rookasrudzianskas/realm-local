@@ -3,13 +3,14 @@ import Realm from 'realm';
 import { RealmProvider, UserProvider } from '@realm/react';
 import {Task} from "@/src/models/Task";
 import {AppProvider} from "@realm/react/src";
+import AnonymousLogin from "@/src/components/anonymous-login";
 
 const appId = 'application-0-xqohf';
 
 export default function RealmCustomProvider({ children }: PropsWithChildren) {
   return (
     <AppProvider id={appId}>
-      {/*<UserProvider fallback={Login}>*/}
+      <UserProvider fallback={AnonymousLogin}>
         <RealmProvider
           schema={[Task]}
           sync={{
@@ -27,7 +28,7 @@ export default function RealmCustomProvider({ children }: PropsWithChildren) {
         >
           {children}
         </RealmProvider>
-      {/*</UserProvider>*/}
+      </UserProvider>
     </AppProvider>
   )
 }
