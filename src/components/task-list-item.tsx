@@ -3,6 +3,8 @@ import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import {Ionicons} from "@expo/vector-icons";
 import {router} from "expo-router";
+import { Task } from '../models/Task';
+import { useRealm } from '@realm/react';
 
 interface task {
   task: {
@@ -12,12 +14,15 @@ interface task {
 }
 
 const TaskListItem = ({task}: task) => {
+  const realm = useRealm();
   const deleteTask = () => {
-    console.log('Delete task');
+    realm.write(() => {
+      realm.delete(task);
+    });
   }
 
   return (
-    <TouchableOpacity onPress={() => router.push(`/${task.id}`)} className={'bg-[#27272a] rounded-md px-3 py-2' +
+    <TouchableOpacity onPress={() => router.push(`/${task._id}`)} className={'bg-[#27272a] rounded-md px-3 py-2' +
       ' flex-row' +
       ' items-center' +
       ' justify-between' +
